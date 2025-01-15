@@ -53,7 +53,7 @@ The dataset contains the following columns:
 
 #### Using Matplotlib
 
-```python
+```
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -72,4 +72,32 @@ regressor = LinearRegression()
 regressor.fit(X, Y)
 Y_pred = regressor.predict(X)
 plt.plot(data['Number of Ratings'], Y_pred, color='red')
+plt.show() 
+```
+
+### Using Seaborn
+```
+import seaborn as sns
+
+# Create a scatter plot
+plt.figure(figsize=(10, 6))
+scatter = sns.scatterplot(x='Number of Ratings', y='Discount Percentage', 
+                          size='Sale Price', sizes=(20, 200), 
+                          data=data, legend=False, alpha=0.5)
+plt.xlabel('Number of Ratings')
+plt.ylabel('Discount Percentage')
+plt.title('Scatter Plot of Ratings vs Discount Percentage with Sale Price as Size')
+
+# Add a trendline
+sns.regplot(x='Number of Ratings', y='Discount Percentage', data=data, scatter=False, color='red')
 plt.show()
+```
+
+### Step 3: Insights and Conclusion
+Analysis of the scatter plots shows a potential relationship between the sale prices of iPhones and the number of ratings on Flipkart.
+Higher discounts may attract more ratings, reflecting consumer interest
+The most and least expensive iPhone models provide insights into the pricing strategy.
+
+### Conclusion
+This project provides a comprehensive analysis of iPhone sales data on Flipkart, utilizing various data visualization techniques to derive insights. The relationships between sale price, discount percentage, and the number of ratings help in understanding consumer behavior and preferences.
+
